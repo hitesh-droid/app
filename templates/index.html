@@ -1,0 +1,86 @@
+
+<!--<html>-->
+<!--  <head>-->
+<!--    <title>Image Mosaic Maker</title>-->
+<!--  </head>-->
+<!--  <body>-->
+<!--    <h1>Image Mosaic Maker</h1>-->
+<!--    <form action="/" method="post" enctype="multipart/form-data">-->
+<!--      <label for="image">Image:</label>-->
+<!--      <input type="file" id="image" name="image">-->
+<!--      <br>-->
+<!--      <label for="rows">Rows:</label>-->
+<!--      <select id="rows" name="rows">-->
+<!--        <option value="0">Passport Image</option>-->
+<!--        <option value="1">1</option>-->
+<!--        <option value="2">2</option>-->
+<!--        <option value="3">3</option>-->
+<!--        <option value="4">4</option>-->
+<!--        <option value="5">5</option>-->
+<!--        <option value="6">6</option>-->
+<!--      </select>-->
+<!--      <br><br>-->
+<!--      <input type="submit" value="Save">-->
+<!--    </form>-->
+<!--  </body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function showOption(selectedOption) {
+        var options = ["option1", "option2", "option3"];
+        for (var i = 0; i < options.length; i++) {
+          var option = document.getElementById(options[i]);
+          option.style.display = "none";
+        }
+        document.getElementById(selectedOption).style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <select onchange="showOption(this.value)">
+      <option value=""> Select an option </option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+    <div id="option1" style="display: none;">
+      <h1>Option 1</h1>
+      <!-- Option 1 content goes here -->
+    </div>
+   <div id="option2" style="display: none;">
+      <h1>Image Mosaic Maker</h1>
+      <form action="/" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="option" value="option2">
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image">
+        <br>
+        <label for="rows">Rows:</label>
+        <select id="rows" name="rows">
+          <option value="0">Passport Image</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Save">
+      </form>
+    </div>
+    <div id="option3" style="display: none;">
+      <h1>Image to PDF Converter</h1>
+      <form action="/" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="option" value="option3">
+          <label for="images">Image:</label>
+          <input type="file" id="images" name="images" multiple>
+          <br><br>
+          <input type="submit" value="Save">
+      </form>
+    </div>
+  </body>
+</html>
