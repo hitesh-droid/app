@@ -2,8 +2,10 @@ import io
 from flask import Flask, request, redirect, render_template, send_file, make_response
 import mosaic
 import pdf_converter
+from flask_frozen import Freezer
 
 app = Flask(__name__)
+freezer = Freezer(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -43,4 +45,4 @@ def allowed_file(filename):
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    freezer.freeze()
